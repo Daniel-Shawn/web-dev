@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <link rel="stylesheet" href="./mask.css">
+</head>
+<body>
+<div class="cart" id="cart">
+
+</div>
+
+<script>
+    fruits = ['cherry', 'apple', 'orange', 'apple', 'banana', 'apple', 'strawberry', 'mango', 'pineapple', 'apple']
+
+    function pickApple(array){
+        countedTime = 0
+        //to loop through the array
+        //cut off the first 2 occurrences of apples
+        //return the remaining array
+        for (i = 0; i < array.length; i++){
+            array.filter( function(array){
+                if (array[i] === 'apple'){
+                    countedTime += 1
+                    console.log(countedTime)
+                }
+            })
+            console.log(array)
+        }
+        console.log(array)
+    }
+
+;</script>
+</body>
+</html>

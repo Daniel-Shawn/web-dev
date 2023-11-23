@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Items</title>
+    <link rel="stylesheet" href="4.css">
+</head>
+<body>
+    <section class="general">
+        <section class="menu">
+            <div class="title">
+                <h2>Our Menu</h2>
+            </div>
+            <div class="underline"></div>
+
+        <!-- filter buttons -->
+        <div class="btn-container">
+            <!-- <button class="filter-btn" data-id="all" type="button">All</button>
+            <button class="filter-btn" data-id="breakfast" type="button">Breakfast</button>
+            <button class="filter-btn" data-id="lunch" type="button">Lunch</button>
+            <button class="filter-btn" data-id="dinner" type="button">Dinner</button> -->
+        </div>
+
+        <!-- menu items -->
+        <div class="section-center">
+            <!-- item -->
+            <article class="menu-item">
+                <figure>
+                    <img src="./avatar-aang.jpeg">
+                </figure>
+                <div class="item-info">
+                    <header>
+                        <h4>Buttermilk pancakes</h4>
+                        <h4 class="price">$14</h4>
+                    </header>
+                    <p class="item-text">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas soluta commodi nostrum deleniti ipsa suscipit, impedit perferendis totam hic unde laboriosam iste cumque
+                    </p>
+                </div>
+            </article>
+            <!-- item end-->            
+        </div>
+        </section>
+    </section>
+    
+
+
+
+<script>
+const menu = [
+    {
+    id: 1,
+    title: "Buttermilk pancakes",
+    category: "breakfast",
+    price : 15.99,
+    img : 'e.jpg',
+    desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas soluta commodi nostrum deleniti ipsa suscipit, impedit perferendis totam hic unde laboriosam iste cumque'
+    },
+    {
+    id: 11,
+    title: "milakshake",
+    category: "shakes",
+    price : 15.99,
+    img : 'e.jpg',
+    desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas soluta commodi nostrum deleniti ipsa suscipit, impedit perferendis totam hic unde laboriosam iste cumque'
+    },
+    {
+    id: 2,
+    title: "dinner double",
+    category: "lunch",
+    price : 13.99,
+    img : 'entertainment-industry-600.jpg',
+    desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas soluta'
+    },
+    {
+    id: 3,
+    title: "pizza dog",
+    category: "breakfast",
+    price : 12.99,
+    img : 'filming-bride-26429281.jpg',
+    desc: 'Lorem ipsum, Voluptas soluta commodi nostrum deleniti ipsa suscipit, impedit perferendis totam hic unde laboriosam iste cumque'
+    },
+    {
+    id: 4,
+    title: "metal plate",
+    category: "dinner",
+    price : 17.99,
+    img : 'outdoor-cinema-equipment-102752937.jpg',
+    desc: 'Lorem ipsum, dolor commodi nostrum deleniti ipsa suscipit, impedit perferendis totam hic unde laboriosam iste cumque'
+    },
+    {
+    id: 5,
+    title: "burgers & fries",
+    category: "dinner",
+    price : 18.99,
+    img : 'film-reel-clapboard-hollywood-entertainment-industry.jpg',
+    desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas soluta commodi nostrum deleniti ipsa suscipit, impedit perferendis totam hic unde laboriosam iste cumque'
+    },
+    {
+    id: 6,
+    title: "biscuit mangoes",
+    category: "lunch",
+    price : 14.99,
+    img : 'professional-team-cameramen-video.jpg',
+    desc: 'Lorem ipsum, dolpit, impedit perferendis totam hic unde laboriosam iste cumque'
+    },
+    {
+    id: 7,
+    title: "yorghut donuts",
+    category: "breakfast",
+    price : 13.59,
+    img : 'professional-video-camera-stands-tripod.jpg',
+    desc: 'Lorem ipsum, dolpit, i professional team-cameramen videoerendis totam hic unde laboriosam iste cumque'
+    },
+    {
+    id: 8,
+    title: "happy meal",
+    category: "dinner",
+    price : 16.99,
+    img : 'proffessional-camera.jpg',
+    desc: 'Lorem ipsum, dolpit, impedit perferendis totam hic unde laboriosam iste cumqu cameramen videoe'
+    },
+    {
+    id: 9,
+    title: "tiny arks",
+    category: "shakes",
+    price : 16.99,
+    img : 'proffessional-camera.jpg',
+    desc: 'Lorem ipsum, dolpit, impedit perferendis totam hic unde laboriosam iste cumqu cameramen videoe'
+    },
+    {
+    id: 10,
+    title: "fresh bakes",
+    category: "dinner",
+    price : 16.99,
+    img : 'proffessional-camera.jpg',
+    desc: 'Lorem ipsum, dolpit, impedit perferendis totam hic unde laboriosam iste cumqu cameramen videoe'
+    }
+]
+const sectionCenter = document.querySelector('.section-center')
+const btnContainer = document.querySelector('.btn-container')
+
+
+//loading items on default startup page
+window.addEventListener('DOMContentLoaded', function(){
+    disaplyMenuDefault(menu)
+    displayMenuBtns()
+})
+
+
+//filtering items
+/* filterBtns.forEach( function(btn){
+    btn.addEventListener('click', function(e){
+        category = e.currentTarget.dataset.id
+        const menuCategory = menu.filter( function(menuitem){
+            if (category === menuitem.category){
+                return true
+            }
+            else{
+                return false
+            }
+        } )
+        disaplyMenuDefault(menuCategory)
+        if (category === 'all'){
+            disaplyMenuDefault(menu)
+            //console.log('all')
+        }
+    })
+} ) */
+
+///OR the this method below can also work
+/* filterBtns.forEach( function(btn){
+    btn.addEventListener('click', function(e){
+        category = e.currentTarget.dataset.id
+        const menuCategory = menu.filter(function(menuitem){
+            if (category === menuitem.category){
+                return menuitem
+            }
+        })
+        if (category === 'all'){
+            disaplyMenuDefault(menu)
+        }
+        else{
+            disaplyMenuDefault(menuCategory)
+        }
+
+        btn.classList += 'selected'
+        console.log('selected')
+    })
+} ) */
+
+
+
+
+
+
+
+
+function disaplyMenuDefault(menuItems){
+    let displayMenu = menuItems.map( function(item){
+        return `
+            <article class="menu-item">
+                <figure>
+                    <img src=${item.img}>
+                </figure>
+                <div class="item-info">
+                    <header>
+                        <h4>${item.title}</h4>
+                        <h4 class="price">$${item.price}</h4>
+                    </header>
+                    <p class="item-text">
+                        ${item.desc}
+                    </p>
+                </div>
+            </article>
+            `
+    })
+    displayMenu = displayMenu.join("")
+    sectionCenter.innerHTML = displayMenu
+}
+
+function displayMenuBtns(){
+    const categories = menu.reduce(function(value, item){
+        if (!value.includes(item.category)){
+            value.push(item.category)
+        }
+        return value
+    }, ['all'])
+    //console.log(categories)
+
+    let categoryBtns = categories.map(function(category){
+        if (category === 'all'){
+        return `
+        <button class="filter-btn" data-id="all" type="button">all</button>
+        `
+        }
+        else{
+        return `
+        <button class="filter-btn" data-id="${category}" type="button">${category}</button>
+        `}
+    })
+    categoryBtns = categoryBtns.join("")
+    btnContainer.innerHTML = categoryBtns
+
+
+    const filterBtns = document.querySelectorAll('.filter-btn')
+    filterBtns.forEach( function(btn){
+    btn.addEventListener('click', function(e){
+            category = e.currentTarget.dataset.id
+            const menuCategory = menu.filter(function(menuitem){
+                if (category === menuitem.category){
+                    return menuitem
+                }
+            })
+            if (category === 'all'){
+                disaplyMenuDefault(menu)
+            }
+            else{
+                disaplyMenuDefault(menuCategory)
+            }
+            btnContainer.addEventListener('click', function(e){
+                if (btn != e.target){
+                    //console.log(e)
+                    btn.classList.remove('selected')
+                }
+                else{
+                    btn.classList.add('selected')
+                }
+            })
+        })
+    })
+}
+
+;</script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section class="modal-body" id="modal-body">
+    <div class="close" id="close">X</div>
+    <div class="modal-tin">
+        <div class="mod-title">
+            <h1>Here's what you've completed so far!</h1>
+        </div>
+        
+        <div class="modal-container" id="modal-container">
+            
+        </div>
+    </div>
+</section>
+<section class="general" id="general">
+    <div class="adding" id="adding">
+        <input type="text" placeholder="add your task" id="input-task">
+        <button class="addTask" id="addTask">Add</button>
+    </div>
+    <div class="task-box" id="task-box"></div>
+</section>
+
+<section class="moduleBtn">
+    <button id="goals">GOALS</button>
+</section>
+    
+
+<script>
+let taskList;
+let completedList;
+let taskInput = document.getElementById("input-task")
+let addTaskBtn = document.getElementById("addTask")
+let taskBox = document.getElementById("task-box")
+let general = document.getElementById("general")
+let closeBtn = document.getElementById("close")
+let modalContainer = document.getElementById("modal-container")
+let modalBody = document.getElementById("modal-body")
+
+//localStorage.clear()
+savedTasks = JSON.parse(localStorage.getItem('Tasklist'))
+if (Array.isArray(savedTasks)){
+    taskList = savedTasks
+}
+else{
+    taskList = [{
+        task: 'Pick up food',
+        id: '1'
+    }]
+}
+currentCompletedTasks = JSON.parse(localStorage.getItem('Completed'))
+if (Array.isArray(currentCompletedTasks)){
+    completedList = currentCompletedTasks
+}
+else{
+    completedList = []
+}
+showList()
+
+addTaskBtn.addEventListener('click', function(){
+    if (taskInput.value === ''){
+        //console.log('trial')
+        noEntry()
+    }
+    else{
+        //console.log('working else')
+        saveTask()
+        showList()
+    }
+})
+
+closeBtn.addEventListener('click', function(){
+    modalBody.classList.remove('active')
+})
+goals.addEventListener('click', function(){
+    modalBody.classList.toggle('active')
+})
+
+function noEntry(){
+    //console.log('no entry')
+    taskBox.innerHTML = ''
+    errorMessageBox = document.createElement('p')
+    errorMessageBox.textContent = 'Please Type Something..'
+    taskBox.appendChild(errorMessageBox)
+    taskBox.classList.add('active')
+}
+
+function showList(){
+    taskInput.value = ''
+    taskBox.innerHTML = ''
+
+    taskList.forEach(function(task){
+        newTaskBtnContainer = document.createElement('div')
+        newTaskBtnContainer.classList = 'newTaskBtnContainer'
+        newTaskBtnContainer.id = task.id
+        taskBox.append(newTaskBtnContainer)
+
+        //for the list/task items
+        li = document.createElement('li')
+        li.innerText = task.task
+        li.id = task.id
+        newTaskBtnContainer.append(li)
+
+        //for the checking/completed button
+        checkBtn = document.createElement('button')
+        checkBtn.classList = 'checkBtn'
+        checkBtn.innerHTML = '&#x2713;'
+        checkBtn.id = task.id
+        newTaskBtnContainer.append(checkBtn)        
+
+        //for the delete button
+        deleteBtn = document.createElement('button')
+        deleteBtn.classList = 'deleteBtn'
+        deleteBtn.innerText = 'Delete'
+        deleteBtn.id = task.id
+        newTaskBtnContainer.append(deleteBtn)
+
+        //the deleting function
+        deleteBtn.addEventListener('click', function(){
+            deleting()
+        })
+    })
+}
+
+checkingBtn = document.querySelectorAll('.checkBtn')
+checkingBtn.forEach( function(btn){
+    btn.addEventListener('click', function(e){
+        i = event.currentTarget.parentElement
+        i.classList.add('active')
+        a = i.firstElementChild.textContent
+        console.log(completedList)
+        addChecked()
+        modalRender()
+    })
+})
+
+function addChecked(){
+    i = event.currentTarget.parentElement
+    aTarget = i.firstElementChild.textContent
+    checkDate = new Date()
+    console.log(checkDate)
+    completedList.push({
+        task : aTarget,
+        date: checkDate
+    })
+    storingComplete()
+}
+
+function storingComplete(){
+    localStorage.setItem('Completed', JSON.stringify(completedList))
+}
+
+function modalRender(){
+    modalContainer.innerHTML = ''
+    i = event.currentTarget.parentElement
+    i.classList.add('active')
+    a = i.firstElementChild.textContent
+
+    completedList.forEach( function(task){
+        newTaskBtnContainer = document.createElement('div')
+        newTaskBtnContainer.classList = 'newTaskBtnContainer'
+        newTaskBtnContainer.innerText = a
+        modalContainer.append(newTaskBtnContainer)
+    })
+}
+
+function deleting(){
+    const deleteButton = event.target
+    const idToDelete = deleteButton.id
+
+    taskList = taskList.filter(function(task){
+        if (task.id === deleteButton.id){
+            return false
+        }
+        else{
+            return true
+        }
+    })
+    storing()
+    showList()
+}
+
+function saveTask(){
+    let task = taskInput.value
+    idToDelete = deleteBtn.id
+    id = '' + (taskList.length + 1)
+    taskList.push({
+        task : task,
+        id : id
+    })
+    storing()
+}
+function storing(){
+    localStorage.setItem('Tasklist', JSON.stringify(taskList))
+}
+
+;
+</script>
+</body>
+</html>

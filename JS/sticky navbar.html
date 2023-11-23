@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+    <link rel="stylesheet" href="5.css">
+</head>
+<body>
+
+<div class="hero">
+<header id="home">
+    <nav id="nav" class="navbar">
+        <div class="logo">
+            <h1>SOL<span>AR</span></h1>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a href="#home" class="home">HOME</a></li>
+                <li><a href="#tours">TOURS</a></li>
+                <li><a href="#services">SERVICES</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+            <a href="#contact" class="ghost">HIRE ME</a>
+        </div>
+    </nav>
+    <nav id="mobile-nav" class="mobile-nav">
+        <div class="mobile-nav-head">
+            <div class="logo">
+                <h1>SOL<span>AR</span></h1>
+            </div>
+            <div id="mobile-menu" class="mobile-menu">
+                <div class="menu"></div>
+            </div>
+        </div>
+        <div class="mobile-links" id="mobile-links">
+            <ul id="mobile-ul" class="mobile-ul">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#tours">TOURS</a></li>
+                <li><a href="#services">SERVICES</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="banner">
+        <h1>SCROLL PROJECT</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid voluptatibus eveniet, id dolorem quisquam quibusdam debitis aliquam impedit commodi corrupti itaque minus hic? Necessitatibus.</p>
+        <div class="btn">
+            <a href="#contact">Explore!</a>
+        </div>
+    </div>
+</header>
+</div>
+
+<section id="tours">
+    <h1 class="section-title">TOURS</h1>
+</section>
+<section id="services">
+    <h1 class="section-title">SERVICES</h1>
+</section>
+<section id="work">
+    <h1 class="section-title">OUR WORK</h1>
+</section>
+<section id="contact">
+    <h1 class="section-title">CONTACT US</h1>
+</section>
+
+<div class="footer">
+    <p>
+        copyright &copy; backads trade <span class="date"></span>
+        <br>
+        <div class="rights">all rights reserved</div>
+    </p>
+</div>
+
+<div class="scroll-btn" id="scroll-btn">
+    <a href="#">
+        X
+    </a>
+</div>
+    
+
+
+
+
+<script>
+   const mobileMenu = document.getElementById('mobile-menu')
+   const mobileNav = document.getElementById('mobile-nav')
+   const mobileLinks = document.getElementById('mobile-links') //container holding the ul with links
+   const mobileUl = document.getElementById('mobile-ul') //the ul itself
+   const scrollBtn = document.getElementById('scroll-btn')
+   const nav = document.getElementById('nav')
+
+   window.addEventListener('scroll', function(){
+    //
+    scrollHeight = window.pageYOffset
+    navHeight = mobileNav.getBoundingClientRect().height
+    if (scrollHeight > navHeight){
+        mobileNav.classList.add('fixed')
+        nav.classList.add('fixednav')
+        scrollBtn.classList.add('show')
+    }
+    else{
+        mobileNav.classList.remove('fixed')
+        nav.classList.remove('fixednav')
+        scrollBtn.classList.remove('show')
+    }
+   })
+
+   mobileMenu.addEventListener('click', function(){
+        if (mobileMenu.classList.contains('active')){
+            mobileMenu.classList.remove('active')
+        }
+        else{
+            mobileMenu.classList.add('active')
+        }
+
+        mobileLinksContainerHeight = mobileLinks.getBoundingClientRect().height
+        
+
+        mobileUlContainerHeight = mobileUl.getBoundingClientRect().height
+        //
+
+        if (mobileLinksContainerHeight === 0){
+            mobileLinks.style.height = `${mobileUlContainerHeight}px`
+            mobileUl.style.paddingLeft = `2em`
+        }
+        else{
+            mobileLinks.style.height = 0
+            mobileUl.style.paddingLeft = 0
+        }
+   })
+   
+   document.addEventListener('click', function(e){
+        mobileLinksContainerHeight = mobileLinks.getBoundingClientRect().height
+        mobileUlContainerHeight = mobileUl.getBoundingClientRect().height
+
+        if (mobileLinksContainerHeight !== 0 && mobileMenu.classList.contains('active') && e.target !== mobileLinks){
+            mobileMenu.classList.remove('active')
+            mobileLinks.style.height = 0
+        }
+   })
+
+
+
+
+
+
+
+
+
+
+
+   /* mobileMenu.addEventListener('click', function(){
+        if (mobileNav.classList.contains('active')){
+            mobileNav.classList.remove('active')
+            mobileMenu.classList.remove('active')
+        }
+        else{
+            mobileNav.classList.add('active')
+            mobileMenu.classList.add('active')
+        }
+   })
+
+   mobileLinks.addEventListener('click', function(){
+    if (mobileNav.classList.contains('active')){
+            mobileNav.classList.remove('active')
+        }
+   }) */
+
+   docDate = document.querySelector('.date')
+   docDate.innerHTML = new Date().getFullYear()
+
+;</script>
+</body>
+</html>

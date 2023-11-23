@@ -1,0 +1,457 @@
+.about-hero{
+    width: 100%;
+    height: calc(105vh * 3);
+}
+
+.about-hero .navbar a{
+    color: #000;
+}
+
+.about-hero .navbar .logo h2{
+    color: #000;
+}
+
+.about-hero .navbar .ghost i, .about-hero .navbar h3{
+    color: #000;
+}
+
+.about-hero .navbar .ghost:hover i{
+    color: var(--secondary-color);
+}
+
+.about-hero .about-body{
+    width: 100%;
+    height: 80vh;
+    background-color: #f5f6f7;
+}
+.about-body .story{
+    padding: 1.2em;
+    position: relative;
+    width: 100%;
+    min-height: 40vh;
+}
+
+.about-body .story .header-bio{
+    width: 20%;
+    margin-top: 2em;
+}
+.about-body .story .header-bio h2{
+    text-align: center;
+    font-size: 2em;
+    font-family: 'Poppins';
+    font-weight: 500;
+}
+
+.about-body .story .header-bio h3{
+    font-style: italic;
+    font-weight: 400;
+}
+
+.story p{
+    text-align: center;
+}
+
+
+.mission{
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.mission > div{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+.mission .info{
+    width: 80%;
+    margin: 0 auto;
+    background-color: #f5f6f7;
+    padding: 1em;
+}
+
+.mission .info .header-bio{
+    width: 60%;
+}
+
+.mission .info .header-bio h2{
+    text-align: center;
+    font-size: 1.8em;
+    font-family: 'Poppins';
+    font-weight: 500;
+}
+
+.mission .header-bio h3{
+    font-style: italic;
+    font-weight: 400;
+}
+.mission p{
+    text-align: center;
+    padding-bottom: 1em;
+}
+.mission .img img{
+    position: relative;
+    width: 50%;
+    height: 90%;
+    transition: .4s ease;
+}
+.mission .img img:hover{
+    transform: scale(1.1);
+    filter: grayscale(0);
+    border-radius: 10px;
+}
+.mission .img img{
+    filter: grayscale(100);
+}
+
+
+.vision{
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.vision > div{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f6f7;
+}
+.vision .info{
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 1em;
+}
+
+.vision .info .header-bio{
+    width: 60%;
+}
+
+.vision .info .header-bio h2{
+    text-align: center;
+    font-size: 1.8em;
+    font-family: 'Poppins';
+    font-weight: 500;
+}
+
+.vision .header-bio h3{
+    font-style: italic;
+    font-weight: 400;
+}
+.vision p{
+    text-align: center;
+    padding-bottom: 1em;
+}
+.vision .img img{
+    position: relative;
+    width: 50%;
+    height: 90%;
+    transition: .4s ease;
+}
+.vision .img img:hover{
+    transform: scale(1.1);
+    filter: grayscale(0);
+    border-radius: 10px;
+}
+.vision .img img{
+    filter: grayscale(100);
+}
+
+.values{
+    height: 80vh;
+}
+.values .info .header-bio{
+    width: 60%;
+}
+
+.values .info .header-bio h2{
+    text-align: center;
+    font-size: 1.8em;
+    font-family: 'Poppins';
+    font-weight: 500;
+}
+
+.values .header-bio h3{
+    font-style: italic;
+    font-weight: 400;
+}
+.values > p{
+    text-align: center;
+    margin-bottom: 1.3em;
+}
+.values ul {
+    position: relative;
+    width: 60%;
+    margin: 0 auto;
+    list-style: none;
+}
+.values ul li{
+    margin: 1em 0;
+    height: 5em;
+    display: flex;
+    align-items: center;
+}
+.values ul li .list-icon{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.list-icon i{
+    font-size: 1.7em;
+}
+.values ul li .list-val{
+    width: 70%;
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 992px){
+    .about-hero{
+        width: 100%;
+        height: calc(110vh * 4);
+    }
+    .story{
+        padding: 1em;
+        position: relative;
+        width: 100%;
+        height: 110vh;
+    }
+    .about-hero .about-body{
+        width: 100%;
+        height: 100%;
+        background-color: #f5f6f7;
+    }
+    .about-body .story .header-bio{
+        width: 80%;
+        margin-top: .5em;
+    }
+    .about-body .story .header-bio h2{
+        text-align: center;
+        font-size: 1.5em;
+        font-family: 'Poppins';
+        font-weight: 500;
+    }
+    .about-body .story .header-bio h3{
+        font-size: 1em;
+    }
+
+
+    .mission{
+        width: 100%;
+        position: relative;
+        min-height: 180vh;
+        flex-direction: column;
+    }
+    .mission .info .header-bio{
+        width: 100%;
+    }
+    .mission .info .header-bio h2{
+        text-align: center;
+        font-size: 1.3em;
+        font-family: 'Poppins';
+        font-weight: 500;
+    }
+    .mission p{
+        text-align: center;
+        padding-bottom: 0;
+    }
+    .mission > div{
+        position: relative;
+        width: 100%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+    }
+    .mission .img img{
+        position: relative;
+        width: 60%;
+        height: 70%;
+    }    
+    .vision{
+        width: 100%;
+        height: 160vh;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background-color: red;
+    }
+    .vision .info .header-bio{
+        width: 80%;
+    }
+    
+    .vision .info .header-bio h2{
+        text-align: center;
+        font-size: 1.4em;
+        font-family: 'Poppins';
+        font-weight: 500;
+    }
+    .vision .header-bio h3{
+        font-style: italic;
+        font-weight: 400;
+        font-size: 1em;
+    }
+    .vision > div{
+        position: relative;
+        width: 100%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .vision .img{
+        position: relative;
+        height: 50%;
+        width: 100%;
+    }
+    .vision .img img{
+        position: relative;
+        width: 60%;
+        height: 70%;
+        transition: .4s ease;
+    }
+    .vision .info{
+        width: 80%;
+        height: 100%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: .5em;
+        height: 100%;
+        margin-bottom: 2em;
+    }
+
+    .values{
+        height: 130vh;
+    }
+    .values .header-bio{
+        width: 70%;
+    }
+    
+    .values .header-bio h2{
+        text-align: center;
+        font-size: 1.5em;
+        font-family: 'Poppins';
+        font-weight: 500;
+    }
+    
+    .values .header-bio h3{
+        font-style: italic;
+        font-weight: 400;
+        font-size: 1.2em;
+    }
+    .values > p{
+        text-align: center;
+        margin-bottom: 2.3em;
+        margin-top: -1em;
+    }
+    .values ul {
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
+        list-style: none;
+    }
+    .values ul li{
+        margin: 1.5em 0;
+        height: 6em;
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .values ul li .list-icon{
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .list-icon i{
+        font-size: 1.1em;
+    }
+    .values ul li .list-val{
+        width: 70%;
+    }
+    .list-val h2{
+        font-size: 1.1em;
+    }
+    .list-val p{
+        font-size: 1em;
+    }
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 768px){
+    .about-body .story .header-bio{
+        width: 20%;
+        margin-top: 2em;
+    }
+    .story{
+        height: 100vh;
+    }
+    .story .header-bio h2::after{
+        top: 50%;
+        left: -20%;
+    }
+    .header-bio h2::before{
+        top: 50%;
+        right: -20%;
+    }
+    .mission .info .header-bio{
+        width: 50%;
+    }
+    .mission .info .header-bio h2{
+        text-align: center;
+        font-size: 1.4em;
+        font-family: 'Poppins';
+        font-weight: 500;
+    }
+    .mission .img img{
+        position: relative;
+        width: 60%;
+        height: 90%;
+        transition: .4s ease;
+    }
+    .vision .img img{
+        position: relative;
+        width: 60%;
+        height: 90%;
+        transition: .4s ease;
+    }
+    .vision .info{
+        width: 60%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .values{
+        height: 50vh;
+    }
+    .values .info .header-bio{
+        width: 50%;
+    }    
+    .values .info .header-bio h2{
+        text-align: center;
+        font-size: 1.8em;
+        font-family: 'Poppins';
+        font-weight: 500;
+    }
+    .values .header-bio h3{
+        font-style: italic;
+        font-weight: 400;
+    }
+}

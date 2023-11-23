@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <link rel="stylesheet" href="./mask.css">
+</head>
+<body>
+<div class="cart" id="cart">
+    <div class="cart-btns">
+        <button id="Apples">Apple</button>
+        <button id="Orange">Orange</button>
+        <button id="Mango">Mango</button>
+        <button id="Clear">CLEAR</button>
+    </div>
+    <hr>
+    <div class="items" id="items">
+        <div id="apple-out" style="--clr:#3c723c">Apples are: </div>
+        <div id="orange-out" style="--clr: #bf4040">Oranges are:</div>
+        <div id="mango-out" style="--clr:#d2982d">Mangoes are: </div>
+    </div>
+</div>
+<button id="CheckOut">CheckOut</button>
+<div class="receipt" id="receipt">
+    <div class="receipt-bx">
+        <div class="close" id="close">X</div>
+        <div class="logo">
+            <h1>Mort Shopp<span>ing</span></h1>
+        </div>
+        <div>Apples each @<span id="apple-cost"></span> x <span id="apple-amt"></span> = <span id="apple-total"></span></div>
+        <div>Orange each @<span id="orange-cost"></span> x <span id="orange-amt"></span> = <span id="orange-total"></span></div>
+        <div>Mango each @<span id="mango-cost"></span> x <span id="mango-amt"></span> = <span id="mango-total"></span></div>
+        <div class="totalbox">
+            Your total is: <span id="Totalspan"></span>
+        </div>
+    </div>
+</div>
+
+<script>
+//shopping cart javascript code
+    applesBtn = document.getElementById("Apples")
+    appleCount = 0;
+    orangeBtn = document.getElementById("Orange")
+    orangeCount = 0
+    mangoBtn = document.getElementById("Mango")
+    mangoCount = 0
+
+    clearBtn = document.getElementById("Clear")
+    iems = document.getElementById('items')
+    appleOut = document.getElementById('apple-out')
+    orangeOut = document.getElementById('orange-out')
+    mangoOut = document.getElementById('mango-out')
+    clearBtn = document.getElementById('Clear')
+    Totalspan = document.getElementById('Totalspan')
+    CheckOut = document.getElementById('CheckOut')
+    receipt = document.getElementById('receipt')
+    closeBtn = document.getElementById('close')
+    appleCost = document.getElementById('apple-cost')
+    orangeCost = document.getElementById('orange-cost')
+    mangoCost = document.getElementById('mango-cost')
+
+    appleAmt = document.getElementById('apple-amt')
+    orangeAmt = document.getElementById('orange-amt')
+    mangoAmt = document.getElementById('mango-amt')
+
+    appleTotal = document.getElementById('apple-total')
+    orangeTotal = document.getElementById('orange-total')
+    mangoTotal = document.getElementById('mango-total')
+
+    cartArray = [{
+        name : 'apple',
+        price : 4,
+        quantity : []
+        //sub = 8
+    },
+    {
+        name : 'orange',
+        price : 3,
+        quantity : []
+        //sub = 9
+    },
+    {
+        name : 'mango',
+        price : 3.5,
+        quantity : []
+        //sub = 21
+    }]
+
+    applesBtn.addEventListener("click", function(){
+        appleCount += 1
+        if (appleCount === 1){
+            appleOut.innerText = appleCount + ' apple'
+        }
+        else{
+            appleOut.innerText = appleCount + ' apples'
+        }
+        cartArray[0].quantity = appleCount
+        cartTotal(cartArray)
+    })
+    orangeBtn.addEventListener("click", function(){
+        orangeCount += 1
+        orangeOut.innerText = orangeCount
+        if (orangeCount === 1){
+            orangeOut.innerText = orangeCount + ' orange'
+        }
+        else{
+            orangeOut.innerText = orangeCount + ' oranges'
+        }
+        cartArray[1].quantity = orangeCount
+        cartTotal(cartArray)
+    })
+    mangoBtn.addEventListener("click", function(){
+        mangoCount += 1
+        mangoOut.innerText = mangoCount
+        if (mangoCount === 1){
+            mangoOut.innerText = mangoCount + ' mango'
+        }
+        else{
+            mangoOut.innerText = mangoCount + ' mangoes'
+        }
+        cartArray[2].quantity = mangoCount
+        cartTotal(cartArray)
+    })
+    clearBtn.addEventListener('click', function(){
+        appleCount = 0
+        appleOut.innerText = appleCount
+        orangeCount = 0
+        orangeOut.innerText = orangeCount
+        mangoCount = 0
+        mangoOut.innerText = mangoCount
+        Totalspan.innerText = 0
+        for (i = 0; i < cartArray.length; i++){
+            cartArray[i].quantity = []
+        }
+    })
+
+    function cartTotal(array){
+        total = 0
+        for (i = 0; i < array.length; i++){
+            subTotal = array[i].price * array[i].quantity
+            //console.log(subTotal)
+            total = total + subTotal
+            //console.log(total)
+        }
+        Totalspan.innerText = 'Ksh' + total + '/='
+        
+    }
+    CheckOut.addEventListener('click', function(){
+        receipt.classList.toggle('active')
+        appleCost.innerText = cartArray[0].price
+        orangeCost.innerText = cartArray[1].price
+        mangoCost.innerText = cartArray[2].price
+
+        appleAmt.innerText = cartArray[0].quantity + ' only'
+        orangeAmt.innerText = cartArray[1].quantity + ' only'
+        mangoAmt.innerText = cartArray[2].quantity + ' only'
+
+        appleTotal.innerText = cartArray[0].quantity * cartArray[0].price
+        orangeTotal.innerText = cartArray[1].quantity * cartArray[1].price
+        mangoTotal.innerText = cartArray[2].quantity * cartArray[2].price
+    })
+    closeBtn.addEventListener('click', function(){
+        receipt.classList = 'receipt'
+    })
+;</script>
+</body>
+</html>

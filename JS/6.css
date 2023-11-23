@@ -1,0 +1,152 @@
+html{
+    scroll-behavior: smooth;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+}
+.general{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: hsl(160, 50%, 55%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.general .project{
+    max-width: 80%;
+    height: 50%;
+}
+.project .title{
+    width: 100%;
+    padding: 1em 0;
+    text-align: center;
+    margin: 1em 0;
+}
+.project .title h1{
+    font-size: 1.8em;
+}
+.project .title p{
+    margin-top: .5em;
+    letter-spacing: .1em;
+}
+.project .body{
+    position: relative;
+    padding: .5em;
+    display: flex;
+    gap: 1.4em;
+    /* background-color: blue; */
+    justify-content: space-evenly;
+}
+.project .body .img, .project .body .tabs{
+    width: 50%;
+    height: 100%;
+}
+.project .body .img img{
+    width: 100%;
+    height: auto;
+    border-radius: .6em;
+    border: 1px solid black;
+}
+.project .body .tabs{
+    min-height: 350px;
+    position: relative;
+    /* background-color: red; */
+    border-radius: .6em;
+    padding: .5em;
+}
+.tabs .btn-container{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+}
+.tabs .btn-container button{
+    width: 33.4%;
+    padding: .5em;
+    font-size: 1em;
+    text-transform: capitalize;
+    cursor: pointer;
+    letter-spacing: 4px;
+    color: #555;
+    background-color: #b3b3b3;
+}
+/* .tabs .btn-container button:hover{
+    background-color: hsl(0, 0%, 90%);
+} */
+.btn-container button:first-child{
+    border-radius: 10px 0 0 0;
+}
+.btn-container button:last-child{
+    border-radius: 0 10px 0 0;
+}
+.btn-container .btn.active{
+    font-size: 1.3em;
+    background-color: white;
+    border: 1px solid black;
+    border-bottom: none;
+    color: black;
+}
+.tabs .about-section{
+    padding: 10px;
+    background-color: white;
+    border-radius:  0 0 10px 10px;
+}
+.tabs .about-section .content{
+    padding-top: 1em;
+    display: none;
+}
+.tabs .about-section .content.active{
+    display: block;
+}
+.tabs .about-section .content h4{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.1em;
+}
+.tabs .about-section .content p{
+    color: #333;
+    letter-spacing: 2px;
+    margin: 5px auto;
+    max-width: 90%;
+    text-align: center;
+}
+.content li{
+    margin-top: 3px;
+}
+.content .box{
+    width: 50%;
+    margin: 10px auto;
+    padding: 5px;
+    text-align: center;
+}
+.content .box a{
+    text-decoration: none;
+    color: green;
+    padding: 3px;
+    border: 2px solid green;
+    cursor: pointer;
+}
+.content .box a:hover{
+    color: white;
+    background-color: green;
+}
+
+
+@media screen and (max-width: 992px) {
+    .project .body{
+        flex-direction: column;
+    }
+    .project .body .img, .project .body .tabs{
+        width: 100%;
+    }
+}

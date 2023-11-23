@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery List</title>
+    <link rel="stylesheet" href="8.css">
+</head>
+<body>
+<section class="body">
+    <!-- form -->
+    <form class="form">
+        <p class="alert"></p>
+        <h3>Grocery Bud</h3>
+        <div class="control">
+            <input type="text" id="grocery" placeholder="enter your item">
+            <button type="submit" class="submit">Add</button>
+        </div>
+    </form>
+
+    <!-- list -->
+    <div class="container">
+        <div class="grocery-list">
+
+        </div>
+
+        <!-- clear button -->
+        <button type="button" class="clear">Clear All</button>
+    </div>
+</section>
+
+<script>
+const alertitem = document.querySelector('.alert')
+const form = document.querySelector('.form')
+const grocery = document.getElementById('grocery')
+const submitBtn = document.querySelector('.submit')
+const container = document.querySelector('.container')
+const groceryList = document.querySelector('.grocery-list')
+const clearBtn = document.querySelector('.clear')
+
+//for the edit option
+let editElement;
+let editFlag = false
+let editID = ''
+
+
+form.addEventListener('submit', addItem)
+clearBtn.addEventListener('click', clearItems)
+window.addEventListener('DOMContentLoaded', setUpItems)
+
+function setUpItems(){
+    let items = getLocalStorage()
+    if (items.length > 0){
+        items.forEach(function(item){
+            createListItem(item.id, item.value)
+        })
+        container.classList.add('show')
+    }
+}
+function createListItem(id, value){
+    element = document.createElement('article')
+    element.classList.add('item')
+    
+    //add id
+    const attr = document.createAttribute('data-id')
+    attr.value = id
+    element.setAttributeNode(attr)
+    element.innerHTML = `
+    <p class="title">${value}</p>
+    <div class="btn-tin">
+        <button type="button" class="edit">Edit</button>
+        <button type="button" class="delete">Del</button>
+    </div>`;
+
+    const deleteBtn = element.querySelector('.delete')
+    const editBtn = element.querySelector('.edit')
+    deleteBtn.addEventListener('click', deleteItem)
+    editBtn.addEventListener('click', editItem)
+
+    groceryList.appendChild(element)
+}
+
+
+
+//-----FUNCTIONS USED----
+function addItem(e){
+    e.preventDefault();
+
+    const value = grocery.value
+    const id = new Date().getTime().toString()
+    if (value && !editFlag){
+        createListItem(id, value)
+        disaplayAlert('Item added!', 'success')
+        container.classList.add('show')
+
+        //add to local storage
+        addToLocalStorage(id, value)
+        
+        //set back to default
+        setBackToDefault()
+    }
+    else if (value && editFlag){
+        editElement.innerHTML = value
+        disaplayAlert('Your item has been edited', 'notify')
+        editLocalStorage(editID, value)
+        setBackToDefault()
+        doneEditing()
+    }
+    else{
+        disaplayAlert('Please enter value', 'danger')
+    }
+}
+
+function disaplayAlert(text, action){
+    alertitem.textContent = text
+    alertitem.classList.add(`${action}`)
+
+    //remove alert
+    setTimeout(function(){
+        alertitem.textContent = ''
+        alertitem.classList.remove(`${action}`)
+    }, 800)
+}
+
+function editItem(e){
+    currentlyEditing()
+
+    const element = event.currentTarget.parentElement.parentElement
+
+    //set edit item
+    editElement = event.currentTarget.parentElement.previousElementSibling
+
+    //set form value
+    grocery.value = editElement.innerHTML
+    editFlag = true
+    editID = element.dataset.id
+    submitBtn.textContent = 'Save Edit'
+}
+function deleteItem(e){
+    const element = e.currentTarget.parentElement.parentElement
+    const id = element.dataset.id
+    groceryList.removeChild(element)
+    if (groceryList.children.length === 0){
+        container.classList.remove('show');
+    }
+    disaplayAlert('Item deleted', 'danger')
+    setBackToDefault()
+    // remove the item from local storage
+    removeFromLocalStorage(id)
+}
+
+function currentlyEditing(e) {
+    const element = event.currentTarget.parentElement.parentElement
+
+    element.classList.add('target-edit')
+
+    //coloring
+    element.style.backgroundColor = 'yellow'
+}
+function doneEditing() {
+    const articles = groceryList.getElementsByTagName('article')
+
+    for (i = 0; i < articles.length; i++){
+        //console.log(articles[i])
+        if (articles[i].classList.contains('target-edit')){
+            //console.log('yelowww!!!!');
+            articles[i].style.backgroundColor = 'transparent'
+        }
+    }
+}
+
+function setBackToDefault(){
+    grocery.value = ''
+    editFlag = false
+    editID = ''
+    submitBtn.textContent = 'Add'
+}
+function clearItems(){
+    const items = document.querySelectorAll('.item')
+    if (items.length > 0){
+        items.forEach(function(item){
+            groceryList.removeChild(item)
+        });
+    }
+    container.classList.remove('show')
+    disaplayAlert('Your list has been cleared ;)', 'notify')
+    setBackToDefault()
+    localStorage.removeItem('Groceries')
+}
+
+
+//----LOCAL STORAGE-----
+function getLocalStorage(){
+    return localStorage.getItem('Groceries') ? JSON.parse(localStorage.getItem('Groceries')) : [];
+}
+function addToLocalStorage(id, value){
+    /* const grocery = {
+        id: id,
+        value: value
+    } */
+    //can also be written as below
+    const grocery = {id, value}
+    let items = getLocalStorage()
+    items.push(grocery)
+    localStorage.setItem('Groceries', JSON.stringify(items))
+    
+}
+function removeFromLocalStorage(id){
+    let items = getLocalStorage()
+    items = items.filter(function(item){
+        if (item.id !== id){
+            return item
+        }
+    })
+    localStorage.setItem('Groceries', JSON.stringify(items))
+    
+}
+function editLocalStorage(id, value){
+    let items = getLocalStorage()
+    items = items.map(function(item){
+        if (item.id === id){
+            item.value = value
+        }
+        return item
+    })
+    localStorage.setItem('Groceries', JSON.stringify(items))
+    
+}
+;</script>
+</body>
+</html>

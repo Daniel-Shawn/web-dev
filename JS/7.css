@@ -1,0 +1,115 @@
+html{
+    scroll-behavior: smooth;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    font-family: Arial, sans-serif;
+}
+body{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: palegoldenrod;
+}
+.body{
+    width: 80%;
+    height: 400px;
+    display: flex;
+    column-gap: .7em;
+    padding: 1em;
+}
+@media screen and (max-width: 992px) {
+    .body{
+        flex-direction: column;
+        height: 600px;
+        padding: 0 1em;
+    }
+}
+.body .img, .body .info{
+    position: relative;
+    max-width: 45%;
+    height: 100%;
+}
+@media screen and (max-width: 992px) {
+    .body .img, .body .info{
+        position: relative;
+        max-width: 80%;
+        height: 50%;
+        margin: 0 auto;
+    }
+    .body .info{
+        position: relative;
+        text-align: center;
+        height: 60%;
+    }
+    .deadline{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+}
+.body .img{
+    padding: .5em;
+}
+.body .img img{
+    max-width: 100%;
+}
+.body .info{
+    padding: .8em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.body .info h3{
+    font-size: 1.6em;
+    color: crimson;
+    text-transform: uppercase;
+}
+.giveaway{
+    font-size: 1.4em;
+    letter-spacing: .1em;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+.body .info p{
+    font-size: 1.2em;
+    width: 100%;
+    color: dimgrey;
+}
+.deadline{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    transition: .5s ease;
+}
+.deadline div{
+    padding: .7em;
+    background-color: crimson;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s ease;
+}
+.deadline div:hover{
+    border-radius: 3px;
+    background-color: hsl(348, 83%, 57%);
+    transform: scale(1.1);
+}
+.deadline h4{
+    font-size: 1.3em;
+    text-shadow: 1px 1px 5px black;
+}
+.deadline span{
+    text-shadow: 1px 1px 5px black;
+    font-size: 1.2em;
+    text-transform: capitalize;
+}

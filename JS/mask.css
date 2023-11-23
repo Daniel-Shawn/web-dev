@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: 0;
+    font-family: Arial;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    background: url('./avatar-aang.jpeg') center center / cover;
+    position: relative;
+    overflow: hidden;
+}
+.receipt{
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.829);
+    /* opacity: 0;
+    visibility: hidden; */
+    transition: .5s ease;
+}
+.receipt.active{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+.receipt-bx{
+    position: relative;
+    color: #000;
+    text-align: center;
+    font-size: 1.2em;
+    padding: 10px;
+    width: 50%;
+    height: 50%;
+    background-color: rgb(187, 142, 95);
+}
+.receipt-bx .close{
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 50px;
+    height: 50px;
+    font-size: 2em;
+    background-color: aqua;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.receipt-bx .logo{
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    border: 2px solid aqua
+}
+.receipt-bx .logo h1 span{
+    color: aqua;
+}
+.receipt-bx .logo h1{
+    font-weight: bold;
+}
+.receipt-bx span{
+    font-weight: bold;
+}
+.cart{
+    width: 80%;
+    min-height: 40%;
+    border: 2px solid peru;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+
+}
+.cart hr{
+    background-color: rgba(0, 0, 0, 0.603);
+    width: 85%;
+    height: 2px;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+.items{
+    display: flex;
+    flex: 100%;
+    background-color: peachpuff;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    padding: 5px;
+}
+.items div{
+    display: inline-block;
+    width: 30%;
+    height: 50px;
+    border-radius: 5px;
+    background-color: var(--clr);
+    margin: 0 5px;
+    text-align: center;
+    padding: 5px;
+}
+.cart-btns{
+    padding: 10px;
+    margin: 0 auto;
+    height: 50px;
+}
+.cart button{
+    padding: 8px 12px;
+    align-items: center;
+    border-radius: 2px;
+    font-size: 1em;
+    color: white;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: .5s ease;
+}
+button:hover{
+    transform: scale(1.2);
+}
+#Orange{
+    background-color: orangered;
+}
+#Apples{
+    background-color: forestgreen;
+}
+#Mango{
+    background-color: orange;
+    color: black;
+}
+#Clear{
+    background-color: gray;
+}
+.totalbox{
+    background-color: papayawhip;
+    padding: 10px;
+}
+#CheckOut{
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 3px;
+    background-color: aquamarine;
+    cursor: pointer;
+    transition: .5s ease;
+}
+#Totalspan{
+    letter-spacing: .1em;
+    font-size: 1em;
+    font-weight: bold;
+}

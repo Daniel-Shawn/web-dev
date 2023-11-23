@@ -1,0 +1,12 @@
+-------HELLO!-----
+  
+  ABOUT ME:)
+    My name is Daniel. Im an aspiring web developer. Started learning web dev just this yr, 2022 at around Sep when I differed from Uni due to fees. So far Ive covered HTML, CSS and a little bit of JS....just a little. I went through the JS course video by Freecodecamp on YT and another by Super simple Dev.
+
+Hope I get there
+
+
+This is just a dummy photographer portfolio I made using 
+CSS and a little JS
+
+contact: danielshawn54@gmail.com; +254778893238

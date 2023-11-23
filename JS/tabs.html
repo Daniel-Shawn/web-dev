@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabs project</title>
+    <link rel="stylesheet" href="6.css">
+</head>
+<body>
+    <section class="general">
+        <section class="project">
+            <div class="title">
+                <h1>About</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, repellat.</p>
+            </div>
+            <div class="body">
+                <div class="img">
+                    <img src="./avatar-aang.jpeg">
+                </div>
+                <div class="tabs" id="tabs">
+                    <!-- btn container -->
+                    <div class="btn-container">
+                        <button class="btn active" data-id="history">History</button>
+                        <button class="btn" data-id="vision">vision</button>
+                        <button class="btn" data-id="goals">goals</button>
+                    </div>
+
+                    <!-- about content -->
+                    <div class="about-section" id="about-section">
+                        <!-- single item -->
+                        <div class="content active" id="history">
+                            <h4>HISTORY</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur neque in facere optio!</p>
+                            <div class="box">
+                                <a href="#">mask</a>
+                                <a href="#">limbo</a>
+                            </div>
+                        </div>
+                        <!-- end of single item -->
+                        <!-- single item -->
+                        <div class="content" id="vision">
+                            <h4>VISION</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum officiis doloribus ipsa, similique cumque sunt saepe tempora temporibus optio nihil.</p>
+                            
+                                <li>to ntont</li>
+                                <li>to nto eif3p</li>
+                            
+                        </div>
+                        <!-- end of single item -->
+                        <!-- single item -->
+                        <div class="content" id="goals">
+                            <h4>GOALS</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, officiis.</p>
+                            
+                            copyright 2020
+                        </div>
+                        <!-- end of single item -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    
+
+<script>
+    btns = document.querySelectorAll('.btn')
+    aboutSection = document.getElementById('about-section')
+    tabs = document.getElementById('tabs')
+    content = document.querySelectorAll('.content')
+
+    tabs.addEventListener('click', function(e){
+        const id = e.target.dataset.id
+        //console.log(e)
+        if(id){
+            //remove active from other buttons
+            btns.forEach(function(btn){
+                btn.classList.remove('active')
+                e.target.classList.add('active')
+            })
+            //hide other articles
+            content.forEach(function(content){
+                content.classList.remove('active')
+            })
+            const element = document.getElementById(id)
+            element.classList.add('active')
+        }
+    })
+;</script>
+</body>
+</html>

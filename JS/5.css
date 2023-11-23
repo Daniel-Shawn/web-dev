@@ -1,0 +1,375 @@
+:root{
+    --clr: hsl(43, 74%, 59%);
+}
+html{
+    scroll-behavior: smooth;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    position: relative;
+    width: 100%;
+}
+.scroll-btn{
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    background-color: var(--clr);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 5px black;
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s ease;
+}
+.scroll-btn.show{
+    visibility: visible;
+    opacity: 1;
+}
+.scroll-btn a{
+    color: black;
+    text-decoration: none;
+    font-size: 1.6em;
+}
+.hero{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-image: url('./professional-video-camera-stands-tripod.jpg');
+    background-position: center;
+    background-size: cover;
+}
+header{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: rgba(0, 0, 0, 0.788); 
+}
+header *{
+    z-index: +1;
+}
+header .navbar{
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5em;
+    color: white;
+}
+#mobile-nav{
+    display: none;
+}
+.navbar .logo{
+    padding: .5em;
+}
+.navbar .logo h1{
+    font-size: 1.9em;
+    color: white;
+}
+.logo h1 span{
+    color: var(--clr);;
+}
+.navbar .links{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+.navbar .home{
+    visibility: hidden;
+}
+.navbar ul{
+    display: flex;
+    list-style-type: none;
+}
+.navbar ul li{
+    margin: 0 10px;
+}
+.navbar ul li a{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: .3s ease;
+}
+.navbar ul li a:hover{
+    color: gold;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.ghost{
+    padding: 10px 12px;
+    text-decoration: none;
+    color: white;
+    padding: 8px 10px;
+    border: 2px solid white;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: .3s ease;
+}
+.ghost:hover{
+    text-decoration: none;
+    background-color: white;
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+.navbar.fixednav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: whitesmoke;
+    box-shadow: 0 1px 5px black;
+}
+.navbar.fixednav .home{
+    visibility: visible;
+}
+.navbar.fixednav .logo h1{
+    color: black;
+}
+.navbar.fixednav .links li a{
+    color: black;
+}
+.navbar.fixednav .ghost{
+    color: black;
+    border-color: black;
+}
+.navbar.fixednav .ghost:hover{
+    background-color: black;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+section{
+    min-height: 100vh;
+    background-color: wheat;
+    border-bottom: 2px solid black;
+}
+section .section-title{
+    font-size: 2em;
+    width: 100%;
+    text-align: center;
+    padding-top: 1.3em;
+    color: black;
+}
+header .banner{
+    color: white;
+    width: 50%;
+    margin: 0 auto;
+    transform: translateY(80%);
+}
+header .banner h1{
+    text-align: center;
+    margin: 10px 0;
+}
+header .banner p{
+    text-align: center;
+    letter-spacing: .1em;
+    color: #999;
+}
+header .banner .btn{
+    position: relative;
+    width: 100%;
+    margin: 20px 0;
+    padding: 10px;
+    text-align: center;
+}
+.btn a{
+    color: white;
+    padding: 8px 10px;
+    border: 2px solid white;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: .3s ease;
+}
+.btn a:hover{
+    background-color: white;
+    color: black;
+}
+.footer{
+    width: 100%;
+    background-color: #042b50;
+    color: wheat;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.footer .rights{
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:992px) {
+    header #nav{
+        display: none;
+    }
+    #mobile-nav{
+        display: block;
+        width: 100%;
+        min-height: 5em;
+        padding: 0 1.6em;
+        color: white;
+        z-index: +1;
+        transition: .4s ease;
+    }
+    .mobile-nav.fixed{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5em;
+        background-color: whitesmoke;
+        box-shadow: 0 0px 5px black;
+    }
+    .mobile-nav.fixed h1{
+        color: black;
+    }
+    .mobile-nav.fixed #mobile-menu{
+        border-color: black;
+    }
+    .mobile-nav.fixed #mobile-menu .menu, .mobile-nav.fixed #mobile-menu .menu::after, .mobile-nav.fixed #mobile-menu .menu::before{
+        background-color: black;
+    }
+    .mobile-nav.fixed #mobile-menu.active .menu{
+        background-color: whitesmoke;
+    }
+    #mobile-nav .mobile-nav-head{
+        display: block;
+        width: 100%;
+        height: 5em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1.6em;
+        color: white;
+    }
+    .mobile-links{
+        position: relative;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        transition: .5s ease;
+        background-color: goldenrod;
+    }
+    /* #mobile-nav.active .mobile-links{
+        padding: .8em;
+        height: 160px;
+    } */
+    #mobile-nav .mobile-ul{
+        list-style-type: none;
+        padding: .5em;
+        transition: .5s ease;
+    }
+    #mobile-nav .mobile-ul li{
+        margin: 10px 0;
+        padding-bottom: 8px;
+        border-bottom: 1px solid white;
+    }
+    #mobile-nav .mobile-ul li a{
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 1.1em;
+        transition: .4s ease;
+    }
+    .mobile-ul li a:hover{
+        transform: translateX(20px);
+    }
+    #mobile-nav h1{
+        font-size: 1.8em;
+    }
+    #mobile-menu{
+        position: relative;
+        padding: 3px;
+        border: 1px solid var(--clr);;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: .5s ease;
+    }
+    #mobile-menu .menu{
+        position: relative;
+        width: 100%;
+        height: 5px;
+        border-radius: 3px;
+        background-color: var(--clr);;
+        transition: .5s ease;
+    }
+    #mobile-menu .menu::after, #mobile-menu .menu::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--clr);;
+        border-radius: 3px;
+        transition: .5s ease;
+    }
+    #mobile-menu .menu::before{
+        top: -200%;
+    }
+    #mobile-menu .menu::after{
+        top: 200%;
+    }
+    #mobile-menu.active{
+        border-radius: 50%;
+        padding: 5px;
+    }
+    #mobile-menu.active .menu{
+        background-color: transparent;
+    }
+    #mobile-menu.active .menu::before{
+        transform: rotateZ(-45deg) translate(-8px, 7px);
+    }
+    #mobile-menu.active .menu::after{
+        transform: rotateZ(45deg) translate(-6px, -6px);
+    }
+    header .banner{
+        width: 80%;
+    }
+}

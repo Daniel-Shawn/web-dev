@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <link rel="stylesheet" href="9.css">
+</head>
+<body>
+<div class="container">
+    <div class="slide">
+        <div>
+            <img src="./proffessional-camera.jpg" class="slide-img">
+            <div class="txt">
+                <h1>Slide 1</h1>
+                <p>Proffessional Camera</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide">
+        <div>
+            <img src="./professional-video-camera-stands-tripod.jpg" class="slide-img">
+            <div class="txt">
+                <h1>Slide 2</h1>
+                <p>Proffessional Camera</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide">
+        <div>
+            <img src="./professional-team-cameramen-video.jpg" class="slide-img">
+            <div class="txt">
+                <h1>Slide 3</h1>
+                <p>Proffessional Camera</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide">
+        <div>
+            <img src="./outdoor-cinema-equipment-102752937.jpg" class="slide-img">
+            <div class="txt">
+                <h1>Slide 4</h1>
+                <p>Proffessional Camera</p>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="btn-container">
+    <button type="button" class="prev-btn">Prev</button>
+    <button type="button" class="next-btn">Next</button>
+</div>
+
+<script>
+    const slides = document.querySelectorAll('.slide')
+    const nextBtn = document.querySelector('.next-btn')
+    const prevBtn = document.querySelector('.prev-btn')
+
+    slides.forEach(function(slide, index){
+        slide.style.left = `${index * 100}%`
+    })
+
+    let counter = 0
+
+    nextBtn.addEventListener('click', function(){
+        counter++
+        carousel()
+    })
+    prevBtn.addEventListener('click', function(){
+        counter--
+        carousel()
+    })
+
+    function carousel(){
+        if (counter === slides.length){
+            counter = 0
+        }
+        if(counter < 0){
+            counter = slides.length - 1
+        }
+
+        slides.forEach(function(slide){
+            slide.style.transform = `translateX(-${counter * 100}%)`
+        })
+    }
+;</script>
+</body>
+</html>
