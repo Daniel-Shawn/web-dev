@@ -1,0 +1,102 @@
+/* The game is in a grid of 200px by 200px */
+
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.box{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: .8em;
+    text-align: center;
+}
+
+.box button{
+    padding: 1em 1.1em;
+    font-size: 1.1em;
+    background-color: brown;
+    color: #fff;
+    border-radius: 5px;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: .4s ease;
+}
+
+.box #startBtn{
+    margin-bottom: .5em;
+}
+
+.box button:hover{
+    background-color:coral;
+    color: #000;
+}
+
+.box button:active{
+    background-color: red;
+}
+
+.startBtn.clicked{
+    visibility: hidden;
+    display: none;
+    transition: .4s ease;
+}
+
+body h1{
+    padding: .5em 0;
+    text-decoration: underline;
+}
+
+.box h2, body h1{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+
+}
+
+.grid {
+    margin: 1em auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    background-color: olivedrab;
+}
+
+.grid .square {
+    background-color: olivedrab;
+    width: 20px; /* Change this to 10% to make each square 10% of the grid */
+    height: 20px; /* Change this to 10% to make each square 10% of the grid */
+    flex: 1 0 10%; /* This allows the squares to take up equal space within the flex container */
+    box-sizing: border-box; /* Ensure that padding and borders are included in the width and height */
+}
+
+.grid .snake{
+    background-color:burlywood;
+}
+
+.grid .apple{
+    background-color: red;
+    border-radius: 50%;
+    transform: scale(.6);
+}
+
+#score.gameOver{
+    position: relative;
+    padding: .3em .5em;
+    color: #fff;
+    text-shadow: 1px 1px 10px black;
+    background-color: red;
+}

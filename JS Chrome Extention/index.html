@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Chrome Extention Project</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: none;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: whitesmoke;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .contain{
+            position: relative;
+            width: 75%;
+            min-height: 35%;
+            border-radius: 5px;
+            padding: .7em;
+            background-color: burlywood;
+        }
+        .contain input{
+            display: block;
+            width: 100%;
+            height: 25%;
+            margin-bottom: .5em;
+        }
+        .contain input,
+        .contain input:active{
+            padding: .4em;
+            font-size: 1em;
+        }
+        .btnMenu{
+            width: 100%;
+            min-height: fit-content;
+            position: relative;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .btnMenu button{
+            font-size: 1.1em;
+            padding: .4em .5em;
+            cursor: pointer;
+            transition: .4s ease;
+        }
+        #save-btn{
+            background-color: green;
+            color: #fff;
+        }
+        #save-btn:hover{
+            background-color: aqua;
+            color: #000;
+        }
+        #clear-btn:hover{
+            background-color: aqua;
+            color: #000;
+        }#save-btn:hover{
+            background-color: aqua;
+            color: #000;
+        }
+        #ul-el{
+            position: relative;
+            width: 100%;
+            margin-top: .5em;
+            height: 5%;
+            font-family: Arial, Helvetica, sans-serif;
+            text-transform: capitalize;
+        }
+        #ul-el li{
+            margin: .2em 0;
+            list-style-type: decimal;
+            list-style-position: inside;
+            font-weight: 400;
+            font-style: italic;
+            padding: .5em .3em;
+            position: relative;
+            border-bottom: 1px solid #444;
+        }
+        #ul-el li a{
+            text-decoration: none;
+            color: #000;
+        }
+        #ul-el li i{
+            margin-left: .5em;
+            font-size: 1.2em;
+            cursor: pointer;
+            color: crimson;
+        }
+    </style>
+</head>
+<body>
+    <div class="contain">
+        <input type="text" id="input-el">
+        <div class="btnMenu">
+            <button id="save-btn">Save Input</button>
+            <button id="save-tab-btn">Save Tab</button>
+            <button id="clear-btn">Clear All</button>
+        </div>
+        <ul id="ul-el">
+            
+        </ul>
+    </div>
+    
+    <script src="https://kit.fontawesome.com/64b48f14dd.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>

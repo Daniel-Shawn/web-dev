@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Jack Game</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container{
+            background-color: green;
+            color: #fff;
+            margin: 0 auto;
+            width: 60%;
+            height: 80%;
+            text-align: center;
+            padding: 1em;
+        }
+        .container h1{
+            text-shadow: 1px 1px 1px black;
+            text-decoration: underline;
+            margin-bottom: .6em;
+        }
+        .container h2{
+            padding: .3em;
+            background-color: #196619;
+            border-radius: 5px;
+            margin-bottom: .5em;
+            transition: .3s ease;
+        }
+        .container p{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.2em;
+            margin-bottom: .2em;
+            transition: .3s ease;
+        }
+        #start-game,
+        #new-card{
+            outline: none;
+            background-color: gold;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.2em;
+            padding: .7em 1em;
+            margin: 0 auto;
+            margin-top: .4em;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            transition: .4s linear;
+        }
+        #new-card{
+            color: #fff;
+            text-shadow: 1px 1px 1px black;
+            background-color: chocolate;
+            display: none;
+        }
+        #start-game:hover,
+        #new-card:hover{
+            background-color: aqua;
+        }
+        #notify{
+            margin-top: .5em;
+            background-color: #196619;
+            font-style: italic;
+            padding: .3em;
+            display: none;
+            transition: .4s ease;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BLACKJACK</h1>
+        <h2 id="message-el">Dealer: Want to play a round?</h2>
+        <p id="cards">Cards: </p>
+        <p id="cards-sum">Sum: </p>
+        <button id="start-game">START GAME</button>
+        <button id="new-card">NEW CARD</button>
+        <p id="notify">Please wait 5 seconds... We'll be back</p>
+    </div>
+
+    
+    <script src="index.js"></script>
+</body>
+</html>
